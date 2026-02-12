@@ -4,10 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TBC Anniversary Guides</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Site shell: Prompt 1 will build this out -->
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">TBC Anniversary Guides</a>
+            <nav class="main-nav">
+                <a href="#" class="nav-link active">Leveling</a>
+                <a href="#" class="nav-link disabled" data-tooltip="Coming Soon">Dungeons</a>
+                <a href="#" class="nav-link disabled" data-tooltip="Coming Soon">Raids</a>
+                <a href="#" class="nav-link disabled" data-tooltip="Coming Soon">PvP</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== CLASS NAV ===== -->
+    <nav class="class-nav">
+        <div class="class-nav-inner">
+            <a href="#" class="class-btn active" data-class="warrior" style="--btn-class-color: #c79c6e;">
+                <span class="class-icon">&#9876;</span>
+                <span class="class-name">Warrior</span>
+            </a>
+            <a href="#" class="class-btn disabled" data-class="paladin" data-tooltip="Coming Soon" style="--btn-class-color: #f58cba;">
+                <span class="class-icon">&#9768;</span>
+                <span class="class-name">Paladin</span>
+            </a>
+            <a href="#" class="class-btn disabled" data-class="hunter" data-tooltip="Coming Soon" style="--btn-class-color: #abd473;">
+                <span class="class-icon">&#127993;</span>
+                <span class="class-name">Hunter</span>
+            </a>
+            <a href="#" class="class-btn disabled" data-class="rogue" data-tooltip="Coming Soon" style="--btn-class-color: #fff569;">
+                <span class="class-icon">&#128481;</span>
+                <span class="class-name">Rogue</span>
+            </a>
+            <a href="#" class="class-btn disabled" data-class="priest" data-tooltip="Coming Soon" style="--btn-class-color: #ffffff;">
+                <span class="class-icon">&#10013;</span>
+                <span class="class-name">Priest</span>
+            </a>
+            <a href="#" class="class-btn disabled" data-class="shaman" data-tooltip="Coming Soon" style="--btn-class-color: #0070de;">
+                <span class="class-icon">&#9889;</span>
+                <span class="class-name">Shaman</span>
+            </a>
+            <a href="#" class="class-btn disabled" data-class="mage" data-tooltip="Coming Soon" style="--btn-class-color: #69ccf0;">
+                <span class="class-icon">&#10052;</span>
+                <span class="class-name">Mage</span>
+            </a>
+            <a href="#" class="class-btn disabled" data-class="warlock" data-tooltip="Coming Soon" style="--btn-class-color: #9482c9;">
+                <span class="class-icon">&#128293;</span>
+                <span class="class-name">Warlock</span>
+            </a>
+            <a href="#" class="class-btn disabled" data-class="druid" data-tooltip="Coming Soon" style="--btn-class-color: #ff7d0a;">
+                <span class="class-icon">&#127811;</span>
+                <span class="class-name">Druid</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <h1 class="hero-title" id="hero-class-name">Warrior</h1>
+                <p class="hero-tagline" id="hero-tagline">Master the art of warfare from Azeroth to Outland.</p>
+                <div class="hero-meta">
+                    <div class="meta-badge" id="hero-difficulty">
+                        <span class="meta-label">Difficulty</span>
+                        <span class="meta-value">Hard</span>
+                    </div>
+                    <div class="meta-badge" id="hero-roles">
+                        <span class="meta-label">Roles</span>
+                        <span class="meta-value">Melee DPS / Tank</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-decoration"></div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION TABS ===== -->
+    <div class="tabs-wrapper">
+        <div class="tabs-inner">
+            <nav class="tabs" id="section-tabs">
+                <button class="tab active" data-tab="overview">Overview</button>
+                <button class="tab" data-tab="talents">Talent Builds</button>
+                <button class="tab" data-tab="gear">BiS Gear</button>
+                <button class="tab" data-tab="leveling">Leveling Route</button>
+                <button class="tab" data-tab="rotation">Rotation &amp; Tips</button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== TAB CONTENT ===== -->
+    <main class="content-wrapper">
+        <div class="content-inner">
+
+            <!-- Overview -->
+            <section class="tab-content active" id="tab-overview">
+                <div class="content-panel">
+                    <h2>Overview</h2>
+                    <p class="placeholder-text">Warrior overview content will be loaded here.</p>
+                </div>
+            </section>
+
+            <!-- Talent Builds -->
+            <section class="tab-content" id="tab-talents">
+                <div class="content-panel">
+                    <h2>Talent Builds</h2>
+                    <p class="placeholder-text">Talent build information will be loaded here.</p>
+                </div>
+            </section>
+
+            <!-- BiS Gear -->
+            <section class="tab-content" id="tab-gear">
+                <div class="content-panel">
+                    <h2>BiS Gear</h2>
+                    <p class="placeholder-text">Best-in-Slot gear lists will be loaded here.</p>
+                </div>
+            </section>
+
+            <!-- Leveling Route -->
+            <section class="tab-content" id="tab-leveling">
+                <div class="content-panel">
+                    <h2>Leveling Route</h2>
+                    <p class="placeholder-text">Leveling route guides will be loaded here.</p>
+                </div>
+            </section>
+
+            <!-- Rotation & Tips -->
+            <section class="tab-content" id="tab-rotation">
+                <div class="content-panel">
+                    <h2>Rotation &amp; Tips</h2>
+                    <p class="placeholder-text">Rotation and gameplay tips will be loaded here.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>TBC Anniversary Guides &mdash; Fan-made resource for TBC patch 2.4.3</p>
+            <p class="footer-disclaimer">Not affiliated with Blizzard Entertainment.</p>
+        </div>
+    </footer>
 
     <script src="data/warrior.js"></script>
     <script src="js/app.js"></script>
