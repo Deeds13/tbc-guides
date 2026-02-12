@@ -514,6 +514,376 @@ h1, h2, h3, h4, h5, h6 {
     font-style: italic;
 }
 
+/* ===== OVERVIEW TAB ===== */
+
+/* Description paragraphs */
+.overview-text {
+    margin-bottom: 16px;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.overview-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Two-column strengths/weaknesses layout */
+.overview-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* Section headings inside panels */
+.section-heading {
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    border-bottom: 1px solid rgba(201, 170, 113, 0.15);
+    position: relative;
+}
+
+.section-heading::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    bottom: 12px;
+    width: 3px;
+    border-radius: 2px;
+}
+
+.positive-heading { color: var(--quality-uncommon); }
+.positive-heading::before { background: var(--quality-uncommon); }
+
+.negative-heading { color: var(--blood-red-light); }
+.negative-heading::before { background: var(--blood-red-light); }
+
+/* Bulleted lists */
+.overview-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.overview-list li {
+    padding: 8px 12px 8px 28px;
+    position: relative;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.overview-list li::before {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 0.7rem;
+}
+
+.strength-item::before {
+    content: '\25B2';
+    color: var(--quality-uncommon);
+}
+
+.weakness-item::before {
+    content: '\25BC';
+    color: var(--blood-red-light);
+}
+
+/* Tip callout box */
+.tip-callout {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--bg-panel);
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(201, 170, 113, 0.06);
+}
+
+.tip-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+    color: var(--gold);
+    padding-top: 2px;
+}
+
+.tip-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.tip-body strong {
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+}
+
+/* Faction (Alliance/Horde) toggle tabs */
+.faction-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 20px;
+    border: 1px solid #2a2a35;
+    border-radius: 6px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.faction-tab {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 24px;
+    background: var(--bg-panel-light);
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.faction-tab:first-child {
+    border-right: 1px solid #2a2a35;
+}
+
+.faction-tab.active {
+    background: rgba(201, 170, 113, 0.12);
+    color: var(--gold);
+}
+
+.faction-tab:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+}
+
+/* Race recommendation cards */
+.race-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.race-card {
+    background: var(--bg-panel-light);
+    border: 1px solid #2a2a35;
+    border-radius: 6px;
+    padding: 16px 20px;
+    transition: border-color 0.2s ease;
+}
+
+.race-card:hover {
+    border-color: var(--gold-dark);
+}
+
+.race-card.recommended {
+    border-color: var(--class-color);
+    box-shadow: 0 0 12px rgba(199, 156, 110, 0.1);
+}
+
+.race-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recommended-badge {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--bg-dark);
+    background: var(--class-color);
+    padding: 2px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.race-reasoning {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
+/* Profession items */
+.profession-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.profession-item {
+    background: var(--bg-panel-light);
+    border: 1px solid #2a2a35;
+    border-radius: 6px;
+    padding: 16px 20px;
+    transition: border-color 0.2s ease;
+}
+
+.profession-item:hover {
+    border-color: var(--gold-dark);
+}
+
+.profession-item.mandatory {
+    border-color: var(--blood-red-light);
+    border-left: 4px solid var(--blood-red-light);
+}
+
+.profession-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mandatory-badge {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #fff;
+    background: var(--blood-red-light);
+    padding: 2px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.profession-reasoning {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
+/* Stat priority ordered list */
+.stat-priority-list {
+    list-style: none;
+    counter-reset: stat-counter;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-item {
+    counter-increment: stat-counter;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 12px 16px;
+    background: var(--bg-panel-light);
+    border: 1px solid #2a2a35;
+    border-radius: 6px;
+    position: relative;
+    padding-left: 52px;
+}
+
+.stat-item::before {
+    content: counter(stat-counter);
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--class-color);
+    width: 24px;
+    text-align: center;
+}
+
+.stat-name {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gold);
+    white-space: nowrap;
+    min-width: 140px;
+}
+
+.stat-explanation {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* ===== OVERVIEW RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .overview-columns {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .race-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tip-callout {
+        padding: 16px;
+    }
+
+    .stat-item {
+        flex-direction: column;
+        gap: 4px;
+        padding-left: 52px;
+    }
+
+    .stat-name {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .faction-tabs {
+        width: 100%;
+    }
+
+    .faction-tab {
+        flex: 1;
+        text-align: center;
+        padding: 8px 12px;
+    }
+
+    .race-card {
+        padding: 14px 16px;
+    }
+
+    .profession-item {
+        padding: 14px 16px;
+    }
+
+    .stat-item {
+        padding: 10px 12px 10px 44px;
+    }
+
+    .stat-item::before {
+        left: 12px;
+        font-size: 1rem;
+    }
+}
+
 /* ===== FOOTER ===== */
 .site-footer {
     background: var(--bg-panel);

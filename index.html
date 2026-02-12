@@ -111,9 +111,48 @@
 
             <!-- Overview -->
             <section class="tab-content active" id="tab-overview">
-                <div class="content-panel">
+                <!-- Description -->
+                <div class="content-panel" id="overview-description">
                     <h2>Overview</h2>
-                    <p class="placeholder-text">Warrior overview content will be loaded here.</p>
+                </div>
+
+                <!-- Strengths & Weaknesses -->
+                <div class="overview-columns">
+                    <div class="content-panel" id="overview-strengths">
+                        <h3 class="section-heading positive-heading">Strengths</h3>
+                    </div>
+                    <div class="content-panel" id="overview-weaknesses">
+                        <h3 class="section-heading negative-heading">Weaknesses</h3>
+                    </div>
+                </div>
+
+                <!-- Tip Callout -->
+                <div class="tip-callout" id="overview-tip">
+                    <div class="tip-icon">&#9876;</div>
+                    <div class="tip-body">
+                        <strong>Warrior Leveling Tip:</strong> Keep your weapon updated above all else. A single weapon upgrade has more impact on your leveling speed than any other gear slot combined. Run dungeons, check the Auction House, and complete weapon reward quests on cooldown.
+                    </div>
+                </div>
+
+                <!-- Race Recommendations -->
+                <div class="content-panel" id="overview-races">
+                    <h2>Race Recommendations</h2>
+                    <div class="faction-tabs">
+                        <button class="faction-tab active" data-faction="alliance">Alliance</button>
+                        <button class="faction-tab" data-faction="horde">Horde</button>
+                    </div>
+                    <div class="race-grid" id="race-grid-alliance"></div>
+                    <div class="race-grid" id="race-grid-horde" style="display:none;"></div>
+                </div>
+
+                <!-- Professions -->
+                <div class="content-panel" id="overview-professions">
+                    <h2>Professions</h2>
+                </div>
+
+                <!-- Stat Priority -->
+                <div class="content-panel" id="overview-stats">
+                    <h2>Stat Priority</h2>
                 </div>
             </section>
 
