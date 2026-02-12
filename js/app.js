@@ -9,9 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (activeClass) {
         applyClassTheme(activeClass);
         populateHero(activeClass);
+        renderOverview(activeClass);
     }
 
     initTabs();
+    initFactionTabs();
     initMobileMenu();
 });
 
@@ -76,6 +78,174 @@ function initTabs() {
         if (targetContent) {
             targetContent.classList.add("active");
         }
+    });
+}
+
+// ===== OVERVIEW RENDERING =====
+// Builds all overview sub-sections from the active class data
+function renderOverview(classData) {
+    const ov = classData.overview;
+
+    renderDescription(ov.description);
+    renderList("overview-strengths", ov.strengths, "strength-item");
+    renderList("overview-weaknesses", ov.weaknesses, "weakness-item");
+    renderRaces(ov.races);
+    renderProfessions(ov.professions);
+    renderStatPriority(ov.statPriority);
+}
+
+// Render description paragraphs
+function renderDescription(paragraphs) {
+    const container = document.getElementById("overview-description");
+    if (!container || !paragraphs.length) return;
+
+    paragraphs.forEach((text) => {
+        const p = document.createElement("p");
+        p.className = "overview-text";
+        p.textContent = text;
+        container.appendChild(p);
+    });
+}
+
+// Render a bulleted list into a panel
+function renderList(containerId, items, itemClass) {
+    const container = document.getElementById(containerId);
+    if (!container || !items.length) return;
+
+    const ul = document.createElement("ul");
+    ul.className = "overview-list";
+
+    items.forEach((text) => {
+        const li = document.createElement("li");
+        li.className = itemClass;
+        li.textContent = text;
+        ul.appendChild(li);
+    });
+
+    container.appendChild(ul);
+}
+
+// Render race recommendation cards into faction grids
+function renderRaces(races) {
+    renderRaceGrid("race-grid-alliance", races.alliance);
+    renderRaceGrid("race-grid-horde", races.horde);
+}
+
+function renderRaceGrid(containerId, raceList) {
+    const container = document.getElementById(containerId);
+    if (!container || !raceList.length) return;
+
+    raceList.forEach((race, index) => {
+        const card = document.createElement("div");
+        card.className = "race-card" + (index === 0 ? " recommended" : "");
+
+        const name = document.createElement("h4");
+        name.className = "race-name";
+        name.textContent = race.name;
+        if (index === 0) {
+            const badge = document.createElement("span");
+            badge.className = "recommended-badge";
+            badge.textContent = "Recommended";
+            name.appendChild(badge);
+        }
+
+        const desc = document.createElement("p");
+        desc.className = "race-reasoning";
+        desc.textContent = race.reasoning;
+
+        card.appendChild(name);
+        card.appendChild(desc);
+        container.appendChild(card);
+    });
+}
+
+// Render profession recommendations
+function renderProfessions(professions) {
+    const container = document.getElementById("overview-professions");
+    if (!container || !professions.length) return;
+
+    const list = document.createElement("div");
+    list.className = "profession-list";
+
+    professions.forEach((prof, index) => {
+        const item = document.createElement("div");
+        item.className = "profession-item" + (index === 0 ? " mandatory" : "");
+
+        const name = document.createElement("h4");
+        name.className = "profession-name";
+        name.textContent = prof.name;
+        if (index === 0) {
+            const badge = document.createElement("span");
+            badge.className = "mandatory-badge";
+            badge.textContent = "Required";
+            name.appendChild(badge);
+        }
+
+        const desc = document.createElement("p");
+        desc.className = "profession-reasoning";
+        desc.textContent = prof.reasoning;
+
+        item.appendChild(name);
+        item.appendChild(desc);
+        list.appendChild(item);
+    });
+
+    container.appendChild(list);
+}
+
+// Render stat priority as an ordered ranking
+function renderStatPriority(stats) {
+    const container = document.getElementById("overview-stats");
+    if (!container || !stats.length) return;
+
+    const list = document.createElement("ol");
+    list.className = "stat-priority-list";
+
+    stats.forEach((entry) => {
+        const li = document.createElement("li");
+        li.className = "stat-item";
+
+        const name = document.createElement("span");
+        name.className = "stat-name";
+        name.textContent = entry.stat;
+
+        const explanation = document.createElement("span");
+        explanation.className = "stat-explanation";
+        explanation.textContent = entry.explanation;
+
+        li.appendChild(name);
+        li.appendChild(explanation);
+        list.appendChild(li);
+    });
+
+    container.appendChild(list);
+}
+
+// ===== FACTION TABS =====
+// Toggles Alliance/Horde race grids in the overview
+function initFactionTabs() {
+    const racePanel = document.getElementById("overview-races");
+    if (!racePanel) return;
+
+    const factionTabs = racePanel.querySelectorAll(".faction-tab");
+
+    factionTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            factionTabs.forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            const faction = tab.getAttribute("data-faction");
+            const allianceGrid = document.getElementById("race-grid-alliance");
+            const hordeGrid = document.getElementById("race-grid-horde");
+
+            if (faction === "alliance") {
+                allianceGrid.style.display = "";
+                hordeGrid.style.display = "none";
+            } else {
+                allianceGrid.style.display = "none";
+                hordeGrid.style.display = "";
+            }
+        });
     });
 }
 
